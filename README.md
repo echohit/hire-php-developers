@@ -11,6 +11,93 @@
 - 尽可能减少程序运行时间。
 - 请将结果使用 [gist](https://gist.github.com/) 提前发送到 `yaodong.zhao@rightcapital.com`。
 
+
+####PHP代码
+
+~~~PHP
+<?php
+
+class timer
+{
+	var $time_start;
+	var $time_end;
+
+	function __construct()
+	{
+		$this->time_start = 0;
+		$this->time_end = 0;
+	}
+
+	function start()
+	{
+		list($usec,$sec) = explode(" ",microtime());
+		$this->time_start = (float)$usec + (float)$sec;
+	}
+
+	function stop()
+	{
+		list($usec,$sec) = explode(" ",microtime());
+		$this->time_end = (float)$usec + (float)$sec;
+	}
+
+	function show()
+	{
+		$total = $this->time_end - $this->time_start;
+		
+		echo $total." sec"."<br>";
+	}
+}
+
+	//(P P+2 P+6)
+
+	//判断是否为素数
+	function IsPrime($n)
+	{
+		if($n < 2)
+		{ 
+			return false;
+		}
+		
+		if($n == 2)
+		{
+			return true;
+		}
+
+		for($i = 2 ;$i <= sqrt($n) ;$i++)
+		{
+			if($n % $i == 0)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+	//计时
+	$sw=new timer();
+	$sw->start();
+	
+	$totlal = 0;
+	for($n = 1;$n < 10000;$n++)
+	{
+		if(IsPrime($n) && IsPrime($n+2) && IsPrime($n+6))
+		{
+			$total++;
+			$m = $n + 2;
+			$p = $n + 6;
+			echo "(".$n."	".$m."	 ".$p.")"."<br>";
+			$n+=5;
+		}
+	}
+	echo "total: ".$total."<br>";
+	$sw->stop();
+	$sw->show();
+
+~~~
+
+
+
+
 ### 问题二：
 
 我们已经有了一个爬虫程序（Spider）来为我们抓取某种股票数据。现在需要一个新的程序（Manager）负责这些数据的存储和检索。
