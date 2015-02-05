@@ -16,38 +16,6 @@
 
 ~~~PHP
 <?php
-
-class timer
-{
-	var $time_start;
-	var $time_end;
-
-	function __construct()
-	{
-		$this->time_start = 0;
-		$this->time_end = 0;
-	}
-
-	function start()
-	{
-		list($usec,$sec) = explode(" ",microtime());
-		$this->time_start = (float)$usec + (float)$sec;
-	}
-
-	function stop()
-	{
-		list($usec,$sec) = explode(" ",microtime());
-		$this->time_end = (float)$usec + (float)$sec;
-	}
-
-	function show()
-	{
-		$total = $this->time_end - $this->time_start;
-		
-		echo $total." sec"."<br>";
-	}
-}
-
 	//(P P+2 P+6)
 
 	//判断是否为素数
@@ -73,10 +41,6 @@ class timer
 		return true;
 	}
 
-	//计时
-	$sw=new timer();
-	$sw->start();
-	
 	$totlal = 0;
 	for($n = 1;$n < 10000;$n++)
 	{
@@ -86,12 +50,10 @@ class timer
 			$m = $n + 2;
 			$p = $n + 6;
 			echo "(".$n."	".$m."	 ".$p.")"."<br>";
-			$n+=5;
+			$n+=5;//改进算法
 		}
 	}
 	echo "total: ".$total."<br>";
-	$sw->stop();
-	$sw->show();
 
 ~~~
 
