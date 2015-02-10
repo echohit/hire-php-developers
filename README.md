@@ -9,13 +9,14 @@
 > 注意：
 - 请使用 PHP 实现。
 - 尽可能减少程序运行时间。
-- 请将结果使用 [gist](https://gist.github.com/) 提前发送到 `yaodong.zhao@rightcapital.com`。
+- 请将结果使用 [gist](https://gist.github.com/) 提前发送到 
 
 
 ####PHP代码
 
-~~~PHP
-<?php
+
+	<?php
+	
 	//(P P+2 P+6)
 
 	//判断是否为素数
@@ -55,8 +56,6 @@
 	}
 	echo "total: ".$total."<br>";
 
-~~~
-
 
 ### 问题二：
 
@@ -83,7 +82,7 @@
 - 你可以事先做好笔记。
 
 
-- 前端： [frontend.md](frontend.md)
+- 前端： [frontend.md]
 - 后端： [backend.md]
 
 
